@@ -1,0 +1,82 @@
+Introduction to Retrieval-Augmented Generation (RAG)
+
+Retrieval-Augmented Generation (RAG) is a powerful AI framework that enhances large language
+models (LLMs) by connecting them to external knowledge bases. Unlike purely parametric models
+that rely solely on information baked into their weights during training, RAG systems can
+dynamically retrieve relevant information at inference time.
+
+How RAG Works
+
+The RAG pipeline consists of two main phases:
+
+1. Indexing Phase
+   During indexing, documents are loaded, split into chunks, embedded using a vector
+   embedding model, and stored in a vector database (such as FAISS, Pinecone, or Chroma).
+   The embeddings capture the semantic meaning of each chunk.
+
+2. Retrieval and Generation Phase
+   When a user submits a query, the system:
+   a) Embeds the query using the same embedding model.
+   b) Searches the vector store for the most similar document chunks.
+   c) Augments the LLM prompt with the retrieved context.
+   d) Generates a grounded, factual answer.
+
+Key Benefits of RAG
+
+- Reduced Hallucinations: By grounding responses in retrieved facts, RAG significantly
+  reduces the tendency of LLMs to fabricate information.
+
+- Up-to-Date Knowledge: The vector store can be updated without retraining the LLM,
+  making RAG suitable for rapidly changing domains.
+
+- Source Attribution: RAG systems can cite the documents used to generate an answer,
+  improving transparency and trust.
+
+- Cost Efficiency: Fine-tuning LLMs is expensive. RAG achieves domain adaptation
+  through retrieval at a fraction of the cost.
+
+Advanced RAG Techniques
+
+Modern RAG systems go beyond naive retrieval:
+
+- HyDE (Hypothetical Document Embeddings): Generate a hypothetical answer, embed it,
+  and use that to retrieve actual documents.
+
+- Multi-hop Retrieval: Chain multiple retrieval steps to answer complex questions.
+
+- Re-ranking: Use a cross-encoder model to rerank initially retrieved documents.
+
+- Self-RAG: The model decides when to retrieve and evaluates its own outputs.
+
+- FLARE (Forward-Looking Active REtrieval): Retrieve proactively when the model is
+  uncertain about the next tokens.
+
+Chunking Strategies
+
+The choice of chunking strategy significantly impacts retrieval quality:
+
+Fixed-size chunking is simple and predictable but may split semantic units.
+Recursive splitting respects paragraph and sentence boundaries.
+Semantic chunking groups text by meaning, producing the most coherent chunks.
+Sentence window chunking creates fine-grained chunks with surrounding context.
+
+Vector Stores
+
+FAISS (Facebook AI Similarity Search) is a highly efficient library for similarity search
+and clustering of dense vectors. It supports exact and approximate nearest neighbor search
+and scales to billions of vectors.
+
+Other popular vector stores include Chroma, Pinecone, Weaviate, and Qdrant.
+
+Embedding Models
+
+Quality embeddings are critical to RAG performance. Google's text-embedding-004 model
+produces 768-dimensional embeddings and achieves state-of-the-art performance on the
+MTEB benchmark. OpenAI's text-embedding-3-large and Cohere's Embed v3 are strong alternatives.
+
+Conclusion
+
+RAG represents a pragmatic approach to knowledge-augmented AI that combines the reasoning
+capabilities of large language models with the precision of information retrieval systems.
+As the ecosystem matures, we are seeing increasingly sophisticated RAG architectures that
+address limitations like context window constraints, retrieval quality, and generation faithfulness.

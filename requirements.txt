@@ -1,0 +1,50 @@
+# Core LangChain
+langchain
+langchain-community
+langchain-core
+langchain-google-genai
+langchain-text-splitters
+
+# LangGraph
+langgraph
+
+# LlamaIndex
+llama-index
+llama-index-embeddings-langchain
+llama-index-vector-stores-faiss
+
+# Google AI
+google-generativeai
+
+# Vector Store
+faiss-cpu
+
+# Document Loaders
+pypdf
+pdfplumber
+pymupdf
+python-docx
+unstructured
+unstructured[pdf]
+
+# Table extraction
+camelot-py
+tabula-py
+
+# Image/Diagram processing
+Pillow
+pytesseract
+pdf2image
+
+# Graph/Diagram detection
+opencv-python
+
+# Utilities
+python-dotenv
+pydantic
+tqdm
+numpy
+pandas
+tiktoken
+tenacity
+rich
